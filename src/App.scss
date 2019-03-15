@@ -1,0 +1,22 @@
+@import './variables.scss';
+
+body {
+  // background-color: rgba(248, 255, 174, 0.25);
+}
+
+.App {
+  width: 100vw;
+  min-height: 100vh;
+
+  background-image: url(./background.jpg);
+  background-position: center top; /* First value is from left and second is from top. You can use use number as well*/
+  background-repeat: no-repeat;
+
+  &__cityWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    padding: 2rem;
+    // overflow: hidden;
+  }
+}

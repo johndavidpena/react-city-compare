@@ -1,0 +1,76 @@
+@import '../../variables.scss';
+
+.City {
+  margin-top: 15rem;
+
+  &__wrapper {
+    display: grid;
+  }
+
+  &__findSearch {
+    background: $primary-color;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 350px;
+    margin: 0 auto;
+  }
+
+  &__find {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border-right: 2px solid darken($primary-color, 20%);
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+
+    &-button {
+      background: transparent;
+      border: none;
+      border-radius: $border-radius;
+      outline: none;
+      padding-top: 5px;
+      cursor: pointer;
+    }
+
+    & span {
+      font-size: $default-font-size;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 8px;
+    }
+  }
+
+  &__search {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
+    & button {
+      background-color: transparent;
+      border: none;
+      border-radius: $border-radius;
+      outline: none;
+      padding-top: 5px;
+      cursor: pointer;
+    }
+
+    & input {
+      outline: none;
+      border: none;
+      background-color: lighten($primary-color, 9%);
+
+      font-family: $font-family-default;
+      font-size: $default-font-size;
+      font-weight: bold;
+      padding-left: 8px;
+    }
+  }
+
+  &__display {
+    margin-top: 16px;
+
+    &-info p {
+      font-size: 3.3rem;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}

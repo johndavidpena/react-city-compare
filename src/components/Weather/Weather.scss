@@ -1,0 +1,27 @@
+@import '../../variables.scss';
+
+.Weather {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  &__temperatures {
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr;
+  }
+
+  &__description {
+    display: grid;
+    align-items: center;
+  }
+
+  &__misc {
+    display: grid;
+    align-items: center;
+  }
+}
+
+.icon {
+  font-size: 4rem;
+  // color: #fff;
+  // text-shadow: 1px 1px 1px #212121;
+}

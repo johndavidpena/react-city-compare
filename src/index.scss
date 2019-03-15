@@ -1,0 +1,30 @@
+@import './variables.scss';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* Remember: the 'rem' unit is always in relation to the root font size. The global/root font size is
+set in the html element. Font-size: 10px;  Now, 1rem is 10px , BUT users can not change the font
+size in their browser if they need to.
+This is the % of the browser default which is usually 16px 10px/16px = 62.5.
+For screens 1200 - 1800px, 1rem = 10px */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: $font-family-default;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $text-color;
+}
+
+p {
+  font-size: $default-font-size;
+}
