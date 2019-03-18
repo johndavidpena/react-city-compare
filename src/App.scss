@@ -5,12 +5,30 @@ body {
 }
 
 .App {
-  width: 100vw;
-  min-height: 100vh;
+  &__header {
+    position: relative;
+    width: 290px;
+    height: 70px;
+    margin: 36px auto 8px;
+  }
 
-  background-image: url(./downtown.png);
-  background-position: center top; /* First value is from left and second is from top. You can use use number as well*/
-  background-repeat: no-repeat;
+  &__title-city {
+    position: absolute;
+    font-family: $font-family-serif;
+    font-size: 5rem;
+    font-weight: 100;
+    line-height: 100%;
+    color: $try-color;
+  }
+
+  &__title-compare {
+    position: absolute;
+    left: 29%;
+    top: 21%;
+    font-family: $font-family-default;
+    font-size: 5rem;
+    line-height: 100%;
+  }
 
   &__cityWrapper {
     display: grid;

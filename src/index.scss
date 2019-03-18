@@ -15,6 +15,14 @@ This is the % of the browser default which is usually 16px 10px/16px = 62.5.
 For screens 1200 - 1800px, 1rem = 10px */
 html {
   font-size: 62.5%;
+  background: url(downtown.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* Added to make work on Android */
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
