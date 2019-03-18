@@ -2,21 +2,27 @@
 
 .Weather {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  &__temperatures {
-    display: grid;
-    grid-template-rows: 2fr 1fr 1fr;
-  }
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
 
   &__description {
     display: grid;
     align-items: center;
+    justify-items: center;
+
+    & p:first-child {
+      font-size: 2.5rem;
+    }
   }
 
   &__misc {
     display: grid;
     align-items: center;
+    justify-items: center;
+
+    & span.icon {
+      font-size: 5rem;
+    }
   }
 }
 

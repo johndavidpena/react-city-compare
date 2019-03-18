@@ -6,7 +6,7 @@ import getOpenWeatherUrl from '../../logic/getOpenWeatherUrl';
 import parseCityData from '../../logic/parseCityData';
 import handleFocus from '../../logic/handleFocus';
 import { unsplashKey } from '../../api/unsplashKey';
-import Unsplash from '../Unsplash/Unsplash';
+import Unsplash from '../Unsplash/UnsplashOriginal';
 import Weather from '../../components/Weather/Weather';
 
 class City extends Component {
@@ -52,7 +52,7 @@ class City extends Component {
           return;
         }
         let picsArray = [...res.data.results];
-        // console.log('[City] picsArray is ', picsArray);
+        console.log('[City] picsArray is ', picsArray);
         this.setState({
           unsplashPics: picsArray
         });
@@ -140,159 +140,30 @@ class City extends Component {
       <section className="City">
         {!this.state.cityName ? (
           <div className="City__wrapper">
-            <div className="City__findSearch">
-              <div className="City__find">
-                <button className="City__find-button" onClick={this.findCurrentLocation}>
-                  <svg
-                    width="36px"
-                    height="36px"
-                    viewBox="0 0 36 36"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <title>findIcon</title>
-                    <g
-                      id="location-36"
-                      stroke="none"
-                      stroke-width="1"
-                      fill="none"
-                      fill-rule="evenodd"
-                    >
-                      <g
-                        id="Group"
-                        transform="translate(3.000000, 2.500000)"
-                        stroke="#282C34"
-                        stroke-width="2"
-                      >
-                        <circle id="Oval" fill="#FEF73B" cx="15" cy="15.5" r="10" />
-                        <path d="M15,0 L15,4" id="Line-2" stroke-linecap="square" />
-                        <path d="M15,27 L15,31" id="Line-2-Copy" stroke-linecap="square" />
-                        <path d="M26,15 L30,15" id="Line-2-Copy-2" stroke-linecap="square" />
-                        <path d="M0,15 L4,15" id="Line-2-Copy-3" stroke-linecap="square" />
-                      </g>
-                    </g>
-                  </svg>
-                </button>
-                <span>Use My Location</span>
-              </div>
-
-              <div className="City__search">
-                <button type="submit" onClick={this.searchHandler}>
-                  <svg
-                    id="searchSVG"
-                    width="30px"
-                    height="31px"
-                    viewBox="0 0 30 31"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <title>searchIcon</title>
-                    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                      <g
-                        id="search-36"
-                        transform="translate(-4.000000, -3.000000)"
-                        stroke="#282C34"
-                      >
-                        <g id="Group" transform="translate(5.000000, 4.000000)">
-                          <circle id="Oval" strokeWidth="2" fill="#FEF73B" cx="8" cy="8" r="8" />
-                          <path
-                            d="M13.8873291,14.8873291 L26,27"
-                            id="Line"
-                            strokeWidth="3"
-                            strokeLinecap="square"
-                          />
-                        </g>
-                      </g>
-                    </g>
-                  </svg>
-                </button>
-                <input
-                  id="searchInput"
-                  placeholder="Enter city here"
-                  type="text"
-                  // ! Change below to onSubmit or similar to lessen API calls
-                  onChange={this.searchHandler}
-                  onFocus={handleFocus}
-                />
-              </div>
+            <div className="City__doubleButton">
+              <button onClick={this.findCurrentLocation}>Current Location</button>
+              <span className="or">or</span>
+              <input
+                id="searchInput"
+                placeholder="Enter city"
+                type="text"
+                onChange={this.searchHandler}
+                onFocus={handleFocus}
+              />
             </div>
           </div>
         ) : (
           <div className="City__wrapper">
-            <div className="City__findSearch">
-              <div className="City__find">
-                <button className="City__find-button" onClick={this.findCurrentLocation}>
-                  <svg
-                    width="36px"
-                    height="36px"
-                    viewBox="0 0 36 36"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <title>findIcon</title>
-                    <g
-                      id="location-36"
-                      stroke="none"
-                      stroke-width="1"
-                      fill="none"
-                      fill-rule="evenodd"
-                    >
-                      <g
-                        id="Group"
-                        transform="translate(3.000000, 2.500000)"
-                        stroke="#282C34"
-                        stroke-width="2"
-                      >
-                        <circle id="Oval" fill="#FEF73B" cx="15" cy="15.5" r="10" />
-                        <path d="M15,0 L15,4" id="Line-2" stroke-linecap="square" />
-                        <path d="M15,27 L15,31" id="Line-2-Copy" stroke-linecap="square" />
-                        <path d="M26,15 L30,15" id="Line-2-Copy-2" stroke-linecap="square" />
-                        <path d="M0,15 L4,15" id="Line-2-Copy-3" stroke-linecap="square" />
-                      </g>
-                    </g>
-                  </svg>
-                </button>
-                <span>Use My Location</span>
-              </div>
-
-              <div className="City__search">
-                <button type="submit" onClick={this.searchHandler}>
-                  <svg
-                    width="30px"
-                    height="31px"
-                    viewBox="0 0 30 31"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <title>searchIcon</title>
-                    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                      <g
-                        id="search-36"
-                        transform="translate(-4.000000, -3.000000)"
-                        stroke="#282C34"
-                      >
-                        <g id="Group" transform="translate(5.000000, 4.000000)">
-                          <circle id="Oval" strokeWidth="2" fill="#FEF73B" cx="8" cy="8" r="8" />
-                          <path
-                            d="M13.8873291,14.8873291 L26,27"
-                            id="Line"
-                            strokeWidth="3"
-                            strokeLinecap="square"
-                          />
-                        </g>
-                      </g>
-                    </g>
-                  </svg>
-                </button>
-                <input
-                  id="searchInput"
-                  placeholder="Enter city here"
-                  type="text"
-                  // ! Change below to onSubmit or similar to lessen API calls
-                  onChange={this.searchHandler}
-                  onFocus={handleFocus}
-                />
-              </div>
+            <div className="City__doubleButton">
+              <button onClick={this.findCurrentLocation}>Current Location</button>
+              <span className="or">or</span>
+              <input
+                id="searchInput"
+                placeholder="Enter city"
+                type="text"
+                onChange={this.searchHandler}
+                onFocus={handleFocus}
+              />
             </div>
 
             <div className="City__display">
@@ -317,7 +188,9 @@ class City extends Component {
               />
 
               {!this.state.unsplashPics ? (
-                <span>&nbsp;</span>
+                <div className="City__display-noImages">
+                  <p>No images found for location</p>
+                </div>
               ) : (
                 <Unsplash key="unsplash" pics={this.state.unsplashPics} />
               )}
